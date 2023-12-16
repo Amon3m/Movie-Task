@@ -12,21 +12,22 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @HiltViewModel
-class DetailsViewModel @Inject constructor(private val repo: RepoInterface):ViewModel() {
-    private val _movies = MutableStateFlow<ApiState>(ApiState.Loading)
-    val movies: StateFlow<ApiState>
-        get() = _movies
+class DetailsViewModel @Inject constructor(private val repo: RepoInterface) : ViewModel() {
+    private val _movie = MutableStateFlow<ApiState>(ApiState.Loading)
+    val movie: StateFlow<ApiState>
+        get() = _movie
 
 
-    fun getmovie(id:Int) {
+    fun getMovie(id:Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            _movies.emit(ApiState.Loading)
+            _movie.emit(ApiState.Loading)
 
             repo.getMovieByID(id).catch { e ->
-                _movies.emit(ApiState.Failure(e.message ?: ""))
+                _movie.emit(ApiState.Failure(e.message ?: ""))
             }.collect {
-                _movies.emit(ApiState.Success(it))
+                _movie.emit(ApiState.Success(it))
             }
 
         }

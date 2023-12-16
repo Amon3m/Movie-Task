@@ -24,6 +24,6 @@ abstract class  RepoModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindProfileRepo(repository: Repository): RepoInterface
+    abstract fun bindRepo(repository: Repository): RepoInterface
 
 }

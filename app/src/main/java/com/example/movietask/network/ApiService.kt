@@ -12,8 +12,9 @@ interface ApiService {
     suspend fun getMovies(
         @Query("api_key") key: String=API_KEY,
     ): MoviesResponse
-    @GET("3/trending/movie/day/{id}")
+    @GET("3/movie/{id}")
     suspend fun getMovieById(
-        @Query("api_key") key: String=API_KEY,@Path("id") id: Int
+        @Path("id") id: Int,
+        @Query("api_key") key: String = API_KEY
     ): DetailsResponse
 }
