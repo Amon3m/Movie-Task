@@ -1,5 +1,9 @@
 package com.example.movietask.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class MoviesResponse(
@@ -16,51 +20,28 @@ data class MoviesResponse(
 	@field:SerializedName("total_results")
 	val totalResults: Int? = null
 )
+@Entity(tableName = "movies")
 
 data class ResultsItem(
-
-	@field:SerializedName("overview")
-	val overview: String? = null,
-
-	@field:SerializedName("original_language")
-	val originalLanguage: String? = null,
-
-	@field:SerializedName("original_title")
-	val originalTitle: String? = null,
-
-	@field:SerializedName("video")
-	val video: Boolean? = null,
+	@PrimaryKey
+	@ColumnInfo
+	@field:SerializedName("id")
+	var id: Int? = null,
+	@ColumnInfo
 
 	@field:SerializedName("title")
-	val title: String? = null,
-
-	@field:SerializedName("genre_ids")
-	val genreIds: List<Int?>? = null,
+	var title: String? = null,
+	@ColumnInfo
 
 	@field:SerializedName("poster_path")
-	val posterPath: String? = null,
-
-	@field:SerializedName("backdrop_path")
-	val backdropPath: String? = null,
-
-	@field:SerializedName("media_type")
-	val mediaType: String? = null,
+	var posterPath: String? = null,
+	@ColumnInfo
 
 	@field:SerializedName("release_date")
-	val releaseDate: String? = null,
-
-	@field:SerializedName("popularity")
-	val popularity: Any? = null,
+	var releaseDate: String? = null,
+	@ColumnInfo
 
 	@field:SerializedName("vote_average")
-	val voteAverage: Any? = null,
+	var voteAverage: Double? = null
 
-	@field:SerializedName("id")
-	val id: Int? = null,
-
-	@field:SerializedName("adult")
-	val adult: Boolean? = null,
-
-	@field:SerializedName("vote_count")
-	val voteCount: Int? = null
 )

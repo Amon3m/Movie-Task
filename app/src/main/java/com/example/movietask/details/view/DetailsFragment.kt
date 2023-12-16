@@ -72,8 +72,8 @@ class DetailsFragment : Fragment() {
     private fun bindViews(data: DetailsResponse?) {
         binding.titleTxt.text=data?.title
         binding.overTxt.text=data?.overview
-        binding.genresTxt.text= data?.genres?.get(0)?.name
-        binding.langTxt.text= data?.spokenLanguages?.get(0)?.englishName
+        binding.releasedateTxt.text= data?.releaseDate
+        binding.langTxt.text= data?.originalLanguage
         binding.ratingBar2.rating =data?.voteAverage.toString().toFloat()/2
         Glide.with(requireContext())
             .load("https://image.tmdb.org/t/p/w500/${data?.posterPath}")

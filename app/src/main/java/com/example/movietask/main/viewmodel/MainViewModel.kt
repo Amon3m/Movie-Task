@@ -25,7 +25,7 @@ init {
         viewModelScope.launch(Dispatchers.IO) {
             _movies.emit(ApiState.Loading)
 
-                repo.getMovies().catch { e ->
+                repo.getMoviesLocal().catch { e ->
                     _movies.emit(ApiState.Failure(e.message ?: ""))
                 }.collect {
                     _movies.emit(ApiState.Success(it))

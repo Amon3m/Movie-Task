@@ -1,5 +1,7 @@
 package com.example.movietask.di
 
+import com.example.movietask.database.LocalSource
+import com.example.movietask.database.MoviesDao
 import com.example.movietask.model.RepoInterface
 import com.example.movietask.model.Repository
 import com.example.movietask.network.ApiClient

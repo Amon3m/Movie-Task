@@ -1,8 +1,14 @@
 package com.example.movietask.model
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class DetailsResponse(
+
+	@field:SerializedName("id")
+	val id: Int? = null,
 
 	@field:SerializedName("original_language")
 	val originalLanguage: String? = null,
@@ -31,8 +37,6 @@ data class DetailsResponse(
 	@field:SerializedName("production_countries")
 	val productionCountries: List<ProductionCountriesItem?>? = null,
 
-	@field:SerializedName("id")
-	val id: Int? = null,
 
 	@field:SerializedName("vote_count")
 	val voteCount: Int? = null,

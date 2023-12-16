@@ -45,7 +45,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/genres_txt"
+        android:id="@+id/releasedate_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -67,10 +67,10 @@
 
         android:textColor="@color/Primary"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/genres_txt"
+        app:layout_constraintEnd_toEndOf="@+id/releasedate_txt"
         app:layout_constraintHorizontal_bias="0.543"
-        app:layout_constraintStart_toStartOf="@+id/genres_txt"
-        app:layout_constraintTop_toBottomOf="@+id/genres_txt"
+        app:layout_constraintStart_toStartOf="@+id/releasedate_txt"
+        app:layout_constraintTop_toBottomOf="@+id/releasedate_txt"
         tools:text="English" />
 
     <TextView
