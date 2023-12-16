@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.movietask.R
 import com.example.movietask.databinding.FragmentDetailsBinding
 import com.example.movietask.databinding.FragmentMainBinding
@@ -70,7 +71,20 @@ class DetailsFragment : Fragment() {
 
     private fun bindViews(data: DetailsResponse?) {
         binding.titleTxt.text=data?.title
-
+        binding.overTxt.text=data?.overview
+        binding.genresTxt.text= data?.genres?.get(0)?.name
+        binding.langTxt.text= data?.spokenLanguages?.get(0)?.englishName
+        binding.ratingBar2.rating =data?.voteAverage.toString().toFloat()/2
+        Glide.with(requireContext())
+            .load("https://image.tmdb.org/t/p/w500/${data?.posterPath}")
+            .error(R.drawable.img_error)
+            .placeholder(R.drawable.loading_img)
+            .into(  binding.imageView3)
+        Glide.with(requireContext())
+            .load("https://image.tmdb.org/t/p/w500/${data?.backdropPath}")
+            .error(R.drawable.img_error)
+            .placeholder(R.drawable.loading_img)
+            .into(  binding.coverImage)
     }
 
 }
