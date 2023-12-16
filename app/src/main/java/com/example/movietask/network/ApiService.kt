@@ -1,5 +1,6 @@
 package com.example.movietask.network
 
+import com.example.movietask.model.DetailsResponse
 import com.example.movietask.model.MoviesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,5 +12,8 @@ interface ApiService {
     suspend fun getMovies(
         @Query("api_key") key: String=API_KEY,
     ): MoviesResponse
-
+    @GET("3/trending/movie/day/{id}")
+    suspend fun getMovieById(
+        @Query("api_key") key: String=API_KEY,@Path("id") id: Int
+    ): DetailsResponse
 }

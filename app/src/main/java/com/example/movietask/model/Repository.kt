@@ -13,4 +13,8 @@ class Repository @Inject constructor(
         return flowOf(remoteSource.getMovies())
 
     }
+
+    override suspend fun getMovieByID(id: Int): Flow<DetailsResponse> {
+        return flowOf(remoteSource.getMovieByID(id))
+    }
 }
