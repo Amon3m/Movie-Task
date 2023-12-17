@@ -49,6 +49,7 @@ class DetailsFragment : Fragment() {
                         val data = it.data as? DetailsResponse
 
                         binding.progressBar2.visibility = View.INVISIBLE
+                        binding.overTxt.visibility=View.VISIBLE
 
                         bindViews(data)
                     }
@@ -75,6 +76,7 @@ class DetailsFragment : Fragment() {
         binding.releasedateTxt.text= data?.releaseDate
         binding.langTxt.text= data?.originalLanguage
         binding.ratingBar2.rating =data?.voteAverage.toString().toFloat()/2
+
         Glide.with(requireContext())
             .load("https://image.tmdb.org/t/p/w500/${data?.posterPath}")
             .error(R.drawable.img_error)
